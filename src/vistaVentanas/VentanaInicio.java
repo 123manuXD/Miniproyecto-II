@@ -14,7 +14,7 @@ import javax.swing.*;
 public class VentanaInicio extends JFrame {
 
     //Imagenes del juego (5)
-    private Decolib im1;
+    private Decolib im1, im2, im3, im4, im5, im6;
     //boton de jugar
     private JButton btninicarJuego;
     //panel
@@ -39,6 +39,34 @@ public class VentanaInicio extends JFrame {
         im1 = new Decolib("/Imgs/marco.png");
         im1.setBounds(10, 10, 915, 603 );
         add(im1);
+
+        im2 = new Decolib("/Imgs/St/tik.png");
+        im2.setBounds((int)118.78, (int)144.28, 222, 120);
+        add(im2);
+
+        im3 = new Decolib("/Imgs/St/tac.png");
+        im3.setBounds((int) 207.5, (int) 261.5, 223, 117);
+        add(im3);
+        
+        im4 = new Decolib("/Imgs/St/toe.png");
+        im4.setBounds((int) 297.5, (int) 390.5, 234, 117);
+        add(im4);
+
+        im5 = new Decolib("/Imgs/St/xo.png");
+        im5.setBounds((int) 672.75, (int) 97.88, 172, 170);
+        add(im5);
+
+        btninicarJuego = new JButton();
+        btninicarJuego.setBounds(563, 283, 283, 153);
+        btninicarJuego.setOpaque(true);
+        btninicarJuego.setBackground(new Color(42, 47, 79));
+        add(btninicarJuego);
+
+        //añadirle imagen al boton
+        im6 = new Decolib("/Imgs/St/btplay.png");
+        im6.setBounds(0,0, 283, 153);
+        btninicarJuego.add(im6);
+
     }
 
 
