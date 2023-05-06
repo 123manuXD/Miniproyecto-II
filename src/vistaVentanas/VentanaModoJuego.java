@@ -11,7 +11,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class VentanaModoJuego extends JFrame {
+public class VentanaModoJuego extends JFrame implements ActionListener {
     private Decolib im1, im2, im3, im4, im5, im6, im7, im8, im9;
     private JButton btn1vs1, btn1vscop, btnr1, btnr2, btnr3, btnr4;
 
@@ -32,8 +32,8 @@ public class VentanaModoJuego extends JFrame {
         setLayout(null);
 
         //configuracion de los componentes dentro del panel
-        im1 = new Decolib("/Imgs/marco.png");
-        im1.setBounds(10, 10, 915, 603 );
+        im1 = new Decolib("/Imgs/marcod.png");
+        im1.setBounds(-10, -15, 940, 650 );
         add(im1);
 
         im2 = new Decolib("/Imgs/Stm/ic.png");
@@ -110,6 +110,18 @@ public class VentanaModoJuego extends JFrame {
         im9.setBounds(548,454, 205, 66);
         add(im9);
 
+        btnr4.addActionListener(this);
+
     }
+
+    @Override
+    public void actionPerformed(ActionEvent evento) {
+        // TODO Auto-generated method stub
+        if (evento.getSource() == btnr4); {
+            dispose();
+            VentanaJuego ventana = new VentanaJuego();
+           }
+        }
+    
 
 }

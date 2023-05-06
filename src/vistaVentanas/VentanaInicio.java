@@ -36,7 +36,7 @@ public class VentanaInicio extends JFrame implements ActionListener {
         setLayout(null);
 
         //configuracion de los componentes dentro del panel
-        im1 = new Decolib("/Imgs/marcov2.png");
+        im1 = new Decolib("/Imgs/marcod.png");
         im1.setBounds(-10, -15, 950, 660 );
         add(im1);
 
