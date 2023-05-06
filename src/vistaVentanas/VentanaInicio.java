@@ -11,7 +11,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class VentanaInicio extends JFrame {
+public class VentanaInicio extends JFrame implements ActionListener {
 
     //Imagenes del juego (5)
     private Decolib im1, im2, im3, im4, im5, im6;
@@ -36,8 +36,8 @@ public class VentanaInicio extends JFrame {
         setLayout(null);
 
         //configuracion de los componentes dentro del panel
-        im1 = new Decolib("/Imgs/marco.png");
-        im1.setBounds(10, 10, 915, 603 );
+        im1 = new Decolib("/Imgs/marcov2.png");
+        im1.setBounds(-10, -15, 950, 660 );
         add(im1);
 
         im2 = new Decolib("/Imgs/St/tik.png");
@@ -59,14 +59,26 @@ public class VentanaInicio extends JFrame {
         btninicarJuego = new JButton();
         btninicarJuego.setBounds(563, 283, 283, 153);
         btninicarJuego.setOpaque(true);
-        btninicarJuego.setBackground(new Color(42, 47, 79));
+        btninicarJuego.setContentAreaFilled(false);
+        btninicarJuego.setBorderPainted(false);
         add(btninicarJuego);
 
         //añadirle imagen al boton
         im6 = new Decolib("/Imgs/St/btplay.png");
-        im6.setBounds(0,0, 283, 153);
-        btninicarJuego.add(im6);
+        im6.setBounds(564,283, 283, 153);
+        add(im6);
+        
+        btninicarJuego.addActionListener(this);
 
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent evento) {
+        // TODO Auto-generated method stub
+       if (evento.getSource() == btninicarJuego); {
+        dispose();
+        VentanaModoJuego ventana = new VentanaModoJuego();
+       }
     }
 
 
