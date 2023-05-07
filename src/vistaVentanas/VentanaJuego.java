@@ -14,8 +14,8 @@
 
 public class VentanaJuego extends JFrame {
     private Decolib im1, im2, im3, im4, im5;
-    private JPanel jptriki, jppuntos;
-    private JLabel lblpointp1, lblpointp2;
+    private JPanel jppuntos;
+    private JLabel lblpointp1, lblpointp2, csll1, csll2, csll3, csll4, csll5, csll6, csll7, csll8, csll9;
 
     public VentanaJuego(){
         iniciarComponentes();
@@ -69,6 +69,52 @@ public class VentanaJuego extends JFrame {
         lblpointp2.setForeground(new Color(229, 190, 236));
         lblpointp2.setFont(new Font("arial", Font.ROMAN_BASELINE, 30));
         jppuntos.add(lblpointp2);
+
+        //Añadir los Label que se conectaran a la matriz
+        csll1 = new JLabel("1",SwingConstants.CENTER);
+        csll1.setBounds(338,140, 62,63);
+        csll1.setOpaque(false);
+        add(csll1);
+
+        csll2 = new JLabel("2",SwingConstants.CENTER);
+        csll2.setBounds(443,140, 62,63);
+        csll2.setOpaque(false);
+        add(csll2);
+
+        csll3 = new JLabel("3",SwingConstants.CENTER);
+        csll3.setBounds(547,140, 62,63);
+        csll3.setOpaque(false);
+        add(csll3);
+
+        csll4 = new JLabel("4",SwingConstants.CENTER);
+        csll4.setBounds(338,241, 62,63);
+        csll4.setOpaque(false);
+        add(csll4);
+
+        csll5 = new JLabel("5",SwingConstants.CENTER);
+        csll5.setBounds(443,241, 62,63);
+        csll5.setOpaque(false);
+        add(csll5);
+
+        csll6 = new JLabel("6",SwingConstants.CENTER);
+        csll6.setBounds(547,241, 62,63);
+        csll6.setOpaque(false);
+        add(csll6);
+
+        csll7 = new JLabel("7",SwingConstants.CENTER);
+        csll7.setBounds(338,342, 62,63);
+        csll7.setOpaque(false);
+        add(csll7);
+
+        csll1 = new JLabel("8",SwingConstants.CENTER);
+        csll1.setBounds(443,342, 62,63);
+        csll1.setOpaque(false);
+        add(csll1);
+
+        csll1 = new JLabel("9",SwingConstants.CENTER);
+        csll1.setBounds(547,342, 62,63);
+        csll1.setOpaque(false);
+        add(csll1);
 
     }
 
