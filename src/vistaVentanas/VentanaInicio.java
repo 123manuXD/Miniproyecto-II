@@ -1,8 +1,7 @@
-/*
+/**
  * Archivo: VentanaJuego.java
- * Autores: 
- * Manuel Felipe Cardoso Forero (2027288)
- * ----------------------------- (2027288)
+ * @author Manuel Felipe Cardoso Forero (2027288)
+ * @author Juan David Rodriguez Rubio (2025435)
  * Fecha de creación: 06/05/2023
  */
 
