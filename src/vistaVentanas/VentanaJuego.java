@@ -7,9 +7,7 @@
 
  package vistaVentanas;
  import java.awt.*;
- import java.awt.event.*;
  import javax.swing.*;
-
 
 public class VentanaJuego extends JFrame {
 

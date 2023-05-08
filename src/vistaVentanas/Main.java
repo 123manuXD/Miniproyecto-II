@@ -8,9 +8,14 @@
 package vistaVentanas;
 import javax.swing.JFrame;
 
+import controladorJuego.ControladorJuego;
+import modeloJuego.ModeloJuego;
+
 public class Main {
-    public static void main(String []args){
+    public static void main(String args[]){
         VentanaInicio ventana = new VentanaInicio();
-        ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        ModeloJuego model = new ModeloJuego();
+        VentanaJuego view = new VentanaJuego();
+        ControladorJuego controlador = new ControladorJuego(view, model);
     }
 }
