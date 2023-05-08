@@ -75,46 +75,64 @@ public class VentanaJuego extends JFrame {
         csll1 = new JLabel("1",SwingConstants.CENTER);
         csll1.setBounds(338,140, 62,63);
         csll1.setOpaque(false);
+        csll1.setForeground(new Color(229, 190, 236));
+        csll1.setFont(new Font("arial", Font.BOLD, 50));
         add(csll1);
 
         csll2 = new JLabel("2",SwingConstants.CENTER);
         csll2.setBounds(443,140, 62,63);
         csll2.setOpaque(false);
+        csll2.setForeground(new Color(229, 190, 236));
+        csll2.setFont(new Font("arial", Font.BOLD, 50));
         add(csll2);
 
         csll3 = new JLabel("3",SwingConstants.CENTER);
         csll3.setBounds(547,140, 62,63);
         csll3.setOpaque(false);
+        csll3.setForeground(new Color(229, 190, 236));
+        csll3.setFont(new Font("arial", Font.BOLD, 50));
         add(csll3);
 
         csll4 = new JLabel("4",SwingConstants.CENTER);
         csll4.setBounds(338,241, 62,63);
         csll4.setOpaque(false);
+        csll4.setForeground(new Color(229, 190, 236));
+        csll4.setFont(new Font("arial", Font.BOLD, 50));
         add(csll4);
 
         csll5 = new JLabel("5",SwingConstants.CENTER);
         csll5.setBounds(443,241, 62,63);
         csll5.setOpaque(false);
+        csll5.setForeground(new Color(229, 190, 236));
+        csll5.setFont(new Font("arial", Font.BOLD, 50));
         add(csll5);
 
         csll6 = new JLabel("6",SwingConstants.CENTER);
         csll6.setBounds(547,241, 62,63);
         csll6.setOpaque(false);
+        csll6.setForeground(new Color(229, 190, 236));
+        csll6.setFont(new Font("arial", Font.BOLD, 50));
         add(csll6);
 
         csll7 = new JLabel("7",SwingConstants.CENTER);
         csll7.setBounds(338,342, 62,63);
         csll7.setOpaque(false);
+        csll7.setForeground(new Color(229, 190, 236));
+        csll7.setFont(new Font("arial", Font.BOLD, 50));
         add(csll7);
 
         csll8 = new JLabel("8",SwingConstants.CENTER);
         csll8.setBounds(443,342, 62,63);
         csll8.setOpaque(false);
+        csll8.setForeground(new Color(229, 190, 236));
+        csll8.setFont(new Font("arial", Font.BOLD, 50));
         add(csll8);
 
         csll9 = new JLabel("9",SwingConstants.CENTER);
         csll9.setBounds(547,342, 62,63);
         csll9.setOpaque(false);
+        csll9.setForeground(new Color(229, 190, 236));
+        csll9.setFont(new Font("arial", Font.BOLD, 50));
         add(csll9);
 
     }
