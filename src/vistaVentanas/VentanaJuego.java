@@ -12,12 +12,16 @@
 
 
 public class VentanaJuego extends JFrame {
+
     private Decolib im1, im2, im3, im4, im5;
     private JPanel jppuntos;
     private JLabel lblpointp1, lblpointp2, csll1, csll2, csll3, csll4, csll5, csll6, csll7, csll8, csll9;
+    private JLabel[][] casillas;
 
     public VentanaJuego(){
+        casillas = new JLabel[3][3];
         iniciarComponentes();
+        asignarCasillas();
         getContentPane().setBackground((new Color(42, 47, 79)));
     }
 
@@ -43,7 +47,7 @@ public class VentanaJuego extends JFrame {
         im3.setBounds(710, 88, 168,167);
         add(im3);
 
-        //Crear un contenedos para guardar los datos de partida (PUNTOS)
+        //Crear un contenedor para guardar los datos de partida (PUNTOS)
         jppuntos = new JPanel();
         jppuntos.setSize(490, 111);
         jppuntos.setBounds(233, 447, 490,111);
@@ -105,16 +109,38 @@ public class VentanaJuego extends JFrame {
         csll7.setOpaque(false);
         add(csll7);
 
-        csll1 = new JLabel("8",SwingConstants.CENTER);
-        csll1.setBounds(443,342, 62,63);
-        csll1.setOpaque(false);
-        add(csll1);
+        csll8 = new JLabel("8",SwingConstants.CENTER);
+        csll8.setBounds(443,342, 62,63);
+        csll8.setOpaque(false);
+        add(csll8);
 
-        csll1 = new JLabel("9",SwingConstants.CENTER);
-        csll1.setBounds(547,342, 62,63);
-        csll1.setOpaque(false);
-        add(csll1);
+        csll9 = new JLabel("9",SwingConstants.CENTER);
+        csll9.setBounds(547,342, 62,63);
+        csll9.setOpaque(false);
+        add(csll9);
 
+    }
+
+    private void asignarCasillas(){
+        casillas[0][0] = csll1;
+        casillas[0][1] = csll2;
+        casillas[0][2] = csll3;
+        casillas[1][0] = csll4;
+        casillas[1][1] = csll5;
+        casillas[1][2] = csll6;
+        casillas[2][0] = csll7;
+        casillas[2][1] = csll8;
+        casillas[2][2] = csll9;
+    }
+
+    public JLabel[][] getCasillas(){
+        return casillas;
+    }
+    public JLabel getVictoriasJ1(){
+        return lblpointp1;
+    }
+    public JLabel getVictoriasJ2(){
+        return lblpointp2;
     }
 
 }
