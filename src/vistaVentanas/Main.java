@@ -15,7 +15,7 @@ public class Main {
     public static void main(String args[]){
         VentanaInicio ventana = new VentanaInicio();
         ModeloJuego model = new ModeloJuego();
-        VentanaJuego view = new VentanaJuego();
-        ControladorJuego controlador = new ControladorJuego(view, model);
+        // VentanaJuego view = new VentanaJuego();
+        // ControladorJuego controlador = new ControladorJuego(view, model);
     }
 }

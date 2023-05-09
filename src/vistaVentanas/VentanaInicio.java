@@ -10,6 +10,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
+
 public class VentanaInicio extends JFrame implements ActionListener {
 
     //Imagenes del juego (5)
@@ -22,6 +23,7 @@ public class VentanaInicio extends JFrame implements ActionListener {
     public VentanaInicio(){
         iniciarComponentes();
         getContentPane().setBackground((new Color(42, 47, 79)));
+        
     }
 
     private void iniciarComponentes() {
