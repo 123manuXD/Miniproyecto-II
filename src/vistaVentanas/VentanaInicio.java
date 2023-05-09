@@ -10,7 +10,6 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-
 public class VentanaInicio extends JFrame implements ActionListener {
 
     //Imagenes del juego (5)
