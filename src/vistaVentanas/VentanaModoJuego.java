@@ -124,7 +124,7 @@ public class VentanaModoJuego extends JFrame implements ActionListener {
             ModeloJuego model = new ModeloJuego();
             VentanaJuego view = new VentanaJuego();
             ControladorJuego controlador = new ControladorJuego(view, model);
-            VentanaJuego ventana = new VentanaJuego();
+            //VentanaJuego ventana = new VentanaJuego();
            }
         }
     

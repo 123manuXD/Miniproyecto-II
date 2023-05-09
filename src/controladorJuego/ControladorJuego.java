@@ -23,11 +23,11 @@ public class ControladorJuego {
     public ControladorJuego(VentanaJuego view, ModeloJuego model){
         this.view = view;
         this.model =model;
-
         casillas =  view.getCasillas();
         addListeners();
+        crearJugadores();
     }
-
+   
     private void addListeners() {
         for(int i=0; i<3; i++){
             for(int j=0; j<3; j++){
@@ -46,4 +46,11 @@ public class ControladorJuego {
             }
         });
     }
+
+    private void crearJugadores() {
+        JLabel j1 = view.getVictoriasJ1();
+        JLabel j2 = view.getVictoriasJ2();
+        model.setJugadores(j1,j2);
+    }
+
 }
