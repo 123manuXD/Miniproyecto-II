@@ -2,32 +2,31 @@
  * Archivo: ModeloJuego.java
  * @author Manuel Felipe Cardoso Forero (2027288)
  * @author Juan David Rodriguez Rubio (2025435)
- * Fecha de creación: 07/05/2023
+ * Fecha de creación: 10/05/2023
  */
 
-package modeloJuego;
+ package modeloJuego;
+
+ import java.util.Random;
 
 import javax.swing.*;
-import vistaVentanas.VentanaJuego;
-import vistaVentanas.VentanaModoJuego;
+ import vistaVentanas.VentanaJuegoBot;
+ import vistaVentanas.VentanaModoJuego;
 
-
-public class ModeloJuego {
-
+ public class MJbot {
     private String turno;
     private boolean end;
     private boolean draw;
-    private JLabel cuadroj1;
-    private JLabel cuadroj2, cuadroj3;
+    private JLabel cuadrojbot1, cuadrojbot2, cuadrojbot3;
     private String[][] tablero;
     private int cantidadTurnos;
     private int victoriasJ1;
     private int victoriasJ2;
     private int rondascounter;
-    //private int rondascounter2;
+    private Random random;
 
 
-    public ModeloJuego(){
+    public MJbot(){
         turno = "X";
         end = false;
         draw = false;
@@ -35,7 +34,9 @@ public class ModeloJuego {
         cantidadTurnos = 0;
         victoriasJ1 = 0;
         victoriasJ2 = 0;
+        random = new Random();
     }
+
 
     public void marcarCasilla(int i, int j, JLabel[][] casillas){
         if(!end){
@@ -47,6 +48,8 @@ public class ModeloJuego {
                 if(!end){
                     if(turno.equals("X")){
                         turno = "O";
+                        int[] casillaMaquina = seleccionarCasillaMaquina();
+                        marcarCasilla(casillaMaquina[0], casillaMaquina[1], casillas);
                     } else{
                         turno = "X";
                     }
@@ -58,7 +61,17 @@ public class ModeloJuego {
         }
     };
 
-    
+    private int[] seleccionarCasillaMaquina(){
+        // Método para que la máquina seleccione una casilla aleatoria en el tablero
+        int i = random.nextInt(3);
+        int j = random.nextInt(3);
+        while(tablero[i][j] != null){
+            i = random.nextInt(3);
+            j = random.nextInt(3);
+        }
+        return new int[]{i, j};
+    }
+
 
     private void verificarEstado() {
         verificarFilas();
@@ -142,15 +155,15 @@ public class ModeloJuego {
             if(turno.equals("X")){
                 victoriasJ1++;
                 rondascounter++;
-                cuadroj1.setText(String.valueOf(victoriasJ1));
-                cuadroj3.setText(String.valueOf(rondascounter));
+                cuadrojbot1.setText(String.valueOf(victoriasJ1));
+                cuadrojbot3.setText(String.valueOf(rondascounter));
                 JOptionPane.showMessageDialog(null, "¡Ha ganado el Jugador 1");
             } else {
                 victoriasJ2++;
                 rondascounter++;
-                cuadroj2.setText(String.valueOf(victoriasJ2));
-                cuadroj3.setText(String.valueOf(rondascounter));
-                JOptionPane.showMessageDialog(null, "¡Ha ganado el Jugador 2");
+                cuadrojbot2.setText(String.valueOf(victoriasJ2));
+                cuadrojbot3.setText(String.valueOf(rondascounter));
+                JOptionPane.showMessageDialog(null, "¡Ha ganado la maquina");
             }
         }
         turno = "X";
@@ -165,16 +178,10 @@ public class ModeloJuego {
         }
     }
 
-    public void setEstadisticasPartida(JLabel j1, JLabel j2, JLabel j3){
-        cuadroj1 = j1;
-        cuadroj2 = j2;
-        cuadroj3 = j3;
+    public void setEstadisticasPartida(JLabel jb1, JLabel jb2, JLabel jb3){
+        cuadrojbot1 = jb1;
+        cuadrojbot2 = jb2;
+        cuadrojbot3 = jb3;
     }
+ }
 
-    /* public void traerValor (){
-        VentanaModoJuego rondaselecc = new VentanaModoJuego();
-        rondascounter2 = rondaselecc.getnronda();
-
-    } */
-
-}

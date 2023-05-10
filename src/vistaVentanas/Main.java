@@ -10,12 +10,12 @@ import javax.swing.JFrame;
 
 import controladorJuego.ControladorJuego;
 import modeloJuego.ModeloJuego;
+import modeloJuego.MJbot;
 
 public class Main {
     public static void main(String args[]){
         VentanaInicio ventana = new VentanaInicio();
         ModeloJuego model = new ModeloJuego();
-        // VentanaJuego view = new VentanaJuego();
-        // ControladorJuego controlador = new ControladorJuego(view, model);
+        MJbot modelbot = new MJbot();
     }
 }

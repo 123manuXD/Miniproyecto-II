@@ -72,7 +72,7 @@ public class VentanaJuego extends JFrame {
         jppuntos.add(lblpointp2);
 
 
-        lblronda = new JLabel("4",SwingConstants.CENTER);
+        lblronda = new JLabel("0",SwingConstants.CENTER);
         lblronda.setBounds(94,109,111, 51);
         lblronda.setOpaque(false);
         lblronda.setForeground(new Color(229, 190, 236));
@@ -171,7 +171,7 @@ public class VentanaJuego extends JFrame {
         return lblpointp2;
     }
 
-    public JLabel getEstadisticas(){
+    public JLabel getRondaspartida(){
         return lblronda;
     }
 

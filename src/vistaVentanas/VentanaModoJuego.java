@@ -11,6 +11,8 @@ import java.awt.event.*;
 import javax.swing.*;
 
 import controladorJuego.ControladorJuego;
+import controladorJuego.controlerJuegobot;
+import modeloJuego.MJbot;
 import modeloJuego.ModeloJuego;
 
 public class VentanaModoJuego extends JFrame implements ActionListener {
@@ -194,7 +196,10 @@ public class VentanaModoJuego extends JFrame implements ActionListener {
 
     public void juego1vscop(){
         dispose();
-        VentanaJuegoBot ventana = new VentanaJuegoBot();
+        MJbot modelbot = new MJbot();
+        VentanaJuegoBot viewBot = new VentanaJuegoBot();
+        controlerJuegobot controladorb = new controlerJuegobot(viewBot, modelbot);
+
     }
 
     public void mensajesincategoria(){

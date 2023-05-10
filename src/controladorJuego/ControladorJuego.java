@@ -50,7 +50,7 @@ public class ControladorJuego {
     private void crearJugadores() {
         JLabel j1 = view.getVictoriasJ1();
         JLabel j2 = view.getVictoriasJ2();
-        JLabel j3 = view.getEstadisticas();
+        JLabel j3 = view.getRondaspartida();
         model.setEstadisticasPartida(j1,j2, j3);
     }
 
