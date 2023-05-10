@@ -9,6 +9,7 @@ package modeloJuego;
 
 import javax.swing.*;
 import vistaVentanas.VentanaJuego;
+import vistaVentanas.VentanaModoJuego;
 
 public class ModeloJuego {
 
@@ -16,11 +17,12 @@ public class ModeloJuego {
     private boolean end;
     private boolean draw;
     private JLabel cuadroj1;
-    private JLabel cuadroj2;
+    private JLabel cuadroj2, cuadroj3;
     private String[][] tablero;
     private int cantidadTurnos;
     private int victoriasJ1;
     private int victoriasJ2;
+    private int rondascounter;
 
     public ModeloJuego(){
         turno = "X";
@@ -136,11 +138,15 @@ public class ModeloJuego {
         } else{
             if(turno.equals("X")){
                 victoriasJ1++;
+                rondascounter++;
                 cuadroj1.setText(String.valueOf(victoriasJ1));
+                cuadroj3.setText(String.valueOf(rondascounter));
                 JOptionPane.showMessageDialog(null, "¡Ha ganado el Jugador 1");
             } else {
                 victoriasJ2++;
+                rondascounter++;
                 cuadroj2.setText(String.valueOf(victoriasJ2));
+                cuadroj3.setText(String.valueOf(rondascounter));
                 JOptionPane.showMessageDialog(null, "¡Ha ganado el Jugador 2");
             }
         }
@@ -156,8 +162,9 @@ public class ModeloJuego {
         }
     }
 
-    public void setJugadores(JLabel j1, JLabel j2){
+    public void setEstadisticasPartida(JLabel j1, JLabel j2, JLabel j3){
         cuadroj1 = j1;
         cuadroj2 = j2;
+        cuadroj3 = j3;
     }
 }

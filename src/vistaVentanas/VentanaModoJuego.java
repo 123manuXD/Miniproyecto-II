@@ -14,13 +14,15 @@ import controladorJuego.ControladorJuego;
 import modeloJuego.ModeloJuego;
 
 public class VentanaModoJuego extends JFrame implements ActionListener {
-    private Decolib im1, im2, im3, im4, im5, im6, im7, im8, im9;
-    private JButton btn1vs1, btn1vscop, btnr1, btnr2, btnr3, btnr4;
-
+    private Decolib im1, im2, im3, im4, im5, im6, im7, im8, im9, im10;
+    private JButton btnr1, btnr2, btnr3, btnr4;
+    private JToggleButton btn1vs1, btn1vscop;
+    private int rondaselecc = -1;
 
     public VentanaModoJuego(){
         iniciarComponentes();
         getContentPane().setBackground((new Color(42, 47, 79)));
+        
     }
 
     private void iniciarComponentes() {
@@ -42,14 +44,14 @@ public class VentanaModoJuego extends JFrame implements ActionListener {
         im2.setBounds((int)68.56 ,(int)171.53, 348, 317);
         add(im2);
 
-        btn1vs1 = new JButton();
+        btn1vs1 = new JToggleButton();
         btn1vs1.setBounds(460, 144, 189, 174);
         btn1vs1.setOpaque(true);
         btn1vs1.setContentAreaFilled(false);
         //btn1vs1.setBorderPainted(false);
         add(btn1vs1);
 
-        btn1vscop = new JButton();
+        btn1vscop = new JToggleButton();
         btn1vscop.setBounds(649, 144, 189, 174);
         btn1vscop.setOpaque(true);
         btn1vscop.setContentAreaFilled(false);
@@ -84,11 +86,11 @@ public class VentanaModoJuego extends JFrame implements ActionListener {
         //btnr4.setBorderPainted(false);
         add(btnr4);
 
-        im3 =  new Decolib("/Imgs/Stm/im3.png");
+        im3 =  new Decolib("/Imgs/Stm/im4.png");
         im3.setBounds(460, 144, 189, 174);
         add(im3);
 
-        im4 =  new Decolib("/Imgs/Stm/im4.png");
+        im4 =  new Decolib("/Imgs/Stm/im3.png");
         im4.setBounds(649, 144, 189, 174);
         add(im4);
 
@@ -111,22 +113,98 @@ public class VentanaModoJuego extends JFrame implements ActionListener {
         im9 = new Decolib("/Imgs/Stm/im9.png");
         im9.setBounds(548,454, 205, 66);
         add(im9);
+        
 
+        btnr1.addActionListener(this);
+        btnr2.addActionListener(this);
+        btnr3.addActionListener(this);
         btnr4.addActionListener(this);
+        btn1vs1.addActionListener(this);
+        btn1vscop.addActionListener(this);
+        
 
     }
 
     @Override
     public void actionPerformed(ActionEvent evento) {
-        // TODO Auto-generated method stub
-        if (evento.getSource() == btnr4); {
-            dispose();
-            ModeloJuego model = new ModeloJuego();
-            VentanaJuego view = new VentanaJuego();
-            ControladorJuego controlador = new ControladorJuego(view, model);
-            //VentanaJuego ventana = new VentanaJuego();
-           }
+        // Tomar como condicion precionar el boton de 1vs1 o 1vscop para seleccionar el número de rondas
+        if(evento.getSource() == btn1vs1) {
+            btn1vscop.setSelected(false);
         }
+        else if (evento.getSource() == btn1vscop){
+            btn1vs1.setSelected(false);
+        }
+        //Condicones para los botones de ronda 1
+        if(evento.getSource()== btnr1){
+            rondaselecc = 1;
+            if(btn1vs1.isSelected()){
+                Juego1vs1();
+            }else if(btn1vscop.isSelected()){
+                juego1vscop();
+            } else {
+                mensajesincategoria();
+            }
+        } 
+
+        //Condicones para los botones de ronda 2
+        if(evento.getSource()== btnr2){
+            rondaselecc = 2;
+            if(btn1vs1.isSelected()){
+                Juego1vs1();
+            }else if(btn1vscop.isSelected()){
+                juego1vscop();
+            } else {
+                mensajesincategoria();
+            }
+        } 
+
+        //Condicones para los botones de ronda 3
+        if(evento.getSource()== btnr3){
+            rondaselecc = 3;
+            if(btn1vs1.isSelected()){
+                Juego1vs1();
+            }else if(btn1vscop.isSelected()){
+                juego1vscop();
+            } else {
+                mensajesincategoria();
+            }
+        } 
+        
+        //Condicones para los botones de ronda 4
+        if(evento.getSource()== btnr4){
+            rondaselecc = 4;
+            if(btn1vs1.isSelected()){
+                Juego1vs1();
+            }else if(btn1vscop.isSelected()){
+                juego1vscop();
+            } else {
+                mensajesincategoria();
+            }
+        } 
+    }
     
 
-}
+    public void Juego1vs1(){
+        //Para traer la ventana juego
+        dispose();
+        ModeloJuego model = new ModeloJuego();
+        VentanaJuego view = new VentanaJuego();
+        ControladorJuego controlador = new ControladorJuego(view, model);
+    }
+
+    public void juego1vscop(){
+        dispose();
+        VentanaJuegoBot ventana = new VentanaJuegoBot();
+    }
+
+    public void mensajesincategoria(){
+        JOptionPane.showMessageDialog(null,"Selecciona las rondas que quieres jugar.", "Parámetro Necesario",JOptionPane.ERROR_MESSAGE);
+    }
+
+    public int getnronda (){
+        return rondaselecc;
+    }
+    
+} 
+
+
