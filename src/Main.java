@@ -5,11 +5,11 @@
  * Fecha de creación: 14/04/2023
  */
 
-package vistaVentanas;
 import javax.swing.JFrame;
 
 import controladorJuego.ControladorJuego;
 import modeloJuego.ModeloJuego;
+import vistaVentanas.VentanaInicio;
 import modeloJuego.MJbot;
 
 public class Main {
