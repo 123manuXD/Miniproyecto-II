@@ -155,7 +155,7 @@ import javax.swing.*;
             if(turno.equals("X")){
                 victoriasJ1++;
                 rondascounter++;
-                if(rondascounter == 1){
+                if(rondascounter == 3){
                     terminarjuegowp1();
                 }
                 cuadrojbot1.setText(String.valueOf(victoriasJ1));
@@ -164,7 +164,7 @@ import javax.swing.*;
             } else {
                 victoriasJ2++;
                 rondascounter++;
-                if(rondascounter == 1){
+                if(rondascounter == 3){
                     terminarjuegowmaquina();
                 }
                 cuadrojbot2.setText(String.valueOf(victoriasJ2));
