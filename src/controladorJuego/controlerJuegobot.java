@@ -105,6 +105,7 @@ public class controlerJuegobot implements KeyListener{
         String mensajeP1 = "<html><body><font size='5'>Tus puntos: " + modelbot.getvictoriasJ1()+ "</font></body></html>";
         String mensajeP2 = "<html><body><font size='5'>Puntos del la maquina: " + modelbot.getvictoriasbot()+"</font></body></html>";
         JOptionPane.showMessageDialog(null,mensaje + "\n" + mensajeP1 + "\n" + mensajeP2);
+        System.exit(0);
     }
 
     public void terminarjuegowmaquina(){
@@ -112,6 +113,7 @@ public class controlerJuegobot implements KeyListener{
         String mensajeP1 = "<html><body><font size='5'>Tus puntos: " + modelbot.getvictoriasJ1()+ "</font></body></html>";
         String mensajeP2 = "<html><body><font size='5'>Puntos del la maquina: " + modelbot.getvictoriasbot()+"</font></body></html>";
         JOptionPane.showMessageDialog(null,mensaje + "\n" + mensajeP1 + "\n" + mensajeP2);
+        System.exit(0);
     }
 
     public void terminarJuegoempate(){
