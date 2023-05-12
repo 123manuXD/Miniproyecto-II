@@ -142,22 +142,10 @@ public class VentanaInicio extends JFrame implements ActionListener {
             }
         } else {
             dispose();
-            VentanaModoJuego ventana = new VentanaModoJuego();
-            System.out.println(nombrep1);
-            System.out.println(nombrep2);
+            VentanaModoJuego ventana = new VentanaModoJuego(nombrep1, nombrep2);
         }
         
 
     }
-
-    public String getjugador1(){
-        return nombrep1;
-    }
-
-    public String getjugador2(){
-        return nombrep2;
-    }
-
-    
-    
+        
 }

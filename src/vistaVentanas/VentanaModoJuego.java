@@ -20,8 +20,11 @@ public class VentanaModoJuego extends JFrame implements ActionListener {
     private JButton btnr1, btnr2, btnr3, btnr4;
     private JToggleButton btn1vs1, btn1vscop;
     private int rondaselecc = -1;
+    private String numerop1, numperop2;
 
-    public VentanaModoJuego(){
+    public VentanaModoJuego(String numerop1, String numerop2){
+        this.numerop1 = numerop1;
+        this.numperop2 = numerop2;
         iniciarComponentes();
         getContentPane().setBackground((new Color(42, 47, 79)));
         
@@ -190,7 +193,7 @@ public class VentanaModoJuego extends JFrame implements ActionListener {
         //Para traer la ventana juego
         dispose();
         ModeloJuego model = new ModeloJuego();
-        VentanaJuego view = new VentanaJuego(rondaselecc);
+        VentanaJuego view = new VentanaJuego(rondaselecc, numerop1, numperop2);
         ControladorJuego controlador = new ControladorJuego(view, model);
     }
 

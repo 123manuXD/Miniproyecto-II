@@ -14,6 +14,7 @@ import java.security.Key;
 
 import modeloJuego.ModeloJuego;
 import vistaVentanas.VentanaJuego;
+import vistaVentanas.VentanaModoJuego;
 
 public class ControladorJuego implements KeyListener {
     private VentanaJuego view;
@@ -93,12 +94,14 @@ public class ControladorJuego implements KeyListener {
             terminarjuegowp1();
         } else if (model.getvictoriasJ2() > model.getvictoriasJ1()){
             terminarjuegowp2();
+        } else if (model.getvictoriasJ1() == model.getvictoriasJ2()){
+            terminarJuegoempate();
         }
     }
 
     public void terminarjuegowp1(){
         String mensaje = "<html><body><center><font size='5'> FELICIDADES USTED ES EL GANDOR </font></center></body></html>";
-        String ganador = "<html><body><center><font size='5'> jugador 1 </font></center></body></html>";
+        String ganador = "<html><body><center><font size='5'>" +view.getnomp1()+ "</font></center></body></html>";
         String mensajeP1 = "<html><body><font size='5'>Puntos del jugador 1: " + model.getvictoriasJ1()+ "</font></body></html>";
         String mensajeP2 = "<html><body><font size='5'>Puntos del jugador 2: " + model.getvictoriasJ2()+ "</font></body></html>";
         JOptionPane.showMessageDialog(null,mensaje + "\n" + ganador +"\n" + mensajeP1 + "\n" + mensajeP2);
@@ -107,11 +110,17 @@ public class ControladorJuego implements KeyListener {
 
     public void terminarjuegowp2(){
         String mensaje = "<html><body><center><font size='5'> FELICIDADES USTED ES EL GANDOR </font></center></body></html>";
-        String ganador = "<html><body><center><font size='5'> jugador 2</font></center></body></html>";
+        String ganador = "<html><body><center><font size='5'>" +view.getnomp2()+"</font></center></body></html>";
         String mensajeP1 = "<html><body><font size='5'>Puntos del jugador 1: " + model.getvictoriasJ1()+ "</font></body></html>";
         String mensajeP2 = "<html><body><font size='5'>Puntos del jugador 2: " + model.getvictoriasJ2()+"</font></body></html>";
         JOptionPane.showMessageDialog(null,mensaje + "\n" + ganador +"\n" + mensajeP1 + "\n" + mensajeP2);
         System.exit(0);
+    }
+
+
+    public void terminarJuegoempate(){
+        String mensaje = "<html><body><center><font size='5'> El JUEGO TERMINA EN EMPATE </font></center></body></html>";
+        JOptionPane.showMessageDialog(null, mensaje);
     }
 
     public void keyReleased(KeyEvent e) {
