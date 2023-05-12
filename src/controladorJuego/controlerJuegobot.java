@@ -69,16 +69,46 @@ public class controlerJuegobot implements KeyListener{
             @Override
             public void mouseClicked(MouseEvent e){
                 modelbot.marcarCasilla(i,j, casillas);
+                terminarJuego();
             }
         });
     }
 
     private void crearEstacs() {
         JLabel jb1 = viewbot.getVictoriasJ1();
-        JLabel jb2 = viewbot.getVictoriasJ2();
+        JLabel jb2 = viewbot.getvictoriasbot();
         JLabel jb3 = viewbot.getRondaspartida();
         modelbot.setEstadisticasPartida(jb1,jb2, jb3);
     }
+
+    private void terminarJuego(){
+        if (modelbot.getrondascounter() == viewbot.getnumeroRondas()){
+         verificarvictoria();
+        } 
+     }
+ 
+    private void verificarvictoria(){
+        if (modelbot.getvictoriasJ1() > modelbot.getvictoriasbot()){
+            terminarjuegowp1();
+        } else if (modelbot.getvictoriasbot() > modelbot.getvictoriasJ1()){
+            terminarjuegowmaquina();
+        }
+    }
+
+    public void terminarjuegowp1(){
+        String mensaje = "<html><body><center><font size='5'> !VENCISTE A LA MAQUINA FELICIDADES! :D </font></center></body></html>";
+        String mensajeP1 = "<html><body><font size='5'>Tus puntos: " + modelbot.getvictoriasJ1()+ "</font></body></html>";
+        String mensajeP2 = "<html><body><font size='5'>Puntos del la maquina: " + modelbot.getvictoriasbot()+"</font></body></html>";
+        JOptionPane.showMessageDialog(null,mensaje + "\n" + mensajeP1 + "\n" + mensajeP2);
+    }
+
+    public void terminarjuegowmaquina(){
+        String mensaje = "<html><body><center><font size='5'> UFFF! LA MAQUINA VENCIO, VUELVE CUANDO SEAS MÁS FUERTE </font></center></body></html>";
+        String mensajeP1 = "<html><body><font size='5'>Tus puntos: " + modelbot.getvictoriasJ1()+ "</font></body></html>";
+        String mensajeP2 = "<html><body><font size='5'>Puntos del la maquina: " + modelbot.getvictoriasbot()+"</font></body></html>";
+        JOptionPane.showMessageDialog(null,mensaje + "\n" + mensajeP1 + "\n" + mensajeP2);
+    }
+
 
     public void keyReleased(KeyEvent e) {
     }

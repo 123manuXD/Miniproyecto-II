@@ -21,7 +21,7 @@ import javax.swing.*;
     private String[][] tablero;
     private int cantidadTurnos;
     private int victoriasJ1;
-    private int victoriasJ2;
+    private int victoriasbot;
     private int rondascounter;
     private Random random;
 
@@ -33,7 +33,7 @@ import javax.swing.*;
         tablero = new String[3][3];
         cantidadTurnos = 0;
         victoriasJ1 = 0;
-        victoriasJ2 = 0;
+        victoriasbot = 0;
         random = new Random();
     }
 
@@ -155,19 +155,13 @@ import javax.swing.*;
             if(turno.equals("X")){
                 victoriasJ1++;
                 rondascounter++;
-                if(rondascounter == 3){
-                    terminarjuegowp1();
-                }
                 cuadrojbot1.setText(String.valueOf(victoriasJ1));
                 cuadrojbot3.setText(String.valueOf(rondascounter));
                 JOptionPane.showMessageDialog(null, "¡Ha ganado el Jugador 1");
             } else {
-                victoriasJ2++;
+                victoriasbot++;
                 rondascounter++;
-                if(rondascounter == 3){
-                    terminarjuegowmaquina();
-                }
-                cuadrojbot2.setText(String.valueOf(victoriasJ2));
+                cuadrojbot2.setText(String.valueOf(victoriasbot));
                 cuadrojbot3.setText(String.valueOf(rondascounter));
                 JOptionPane.showMessageDialog(null, "¡Ha ganado la maquina");
             }
@@ -190,18 +184,16 @@ import javax.swing.*;
         cuadrojbot3 = jb3;
     }
 
-    public void terminarjuegowp1(){
-        String mensaje = "<html><body><center><font size='5'> !VENCISTE A LA MAQUINA FELICIDADES! :D </font></center></body></html>";
-        String mensajeP1 = "<html><body><font size='5'>Tus puntos: " + victoriasJ1+ "</font></body></html>";
-        String mensajeP2 = "<html><body><font size='5'>Puntos del la maquina: " + victoriasJ2+"</font></body></html>";
-        JOptionPane.showMessageDialog(null,mensaje + "\n" + mensajeP1 + "\n" + mensajeP2);
+    public int getvictoriasJ1(){
+        return victoriasJ1;
     }
 
-    public void terminarjuegowmaquina(){
-        String mensaje = "<html><body><center><font size='5'> UFFF! LA MAQUINA VENCIO, VUELVE CUANDO SEAS MÁS FUERTE </font></center></body></html>";
-        String mensajeP1 = "<html><body><font size='5'>Tus puntos: " + victoriasJ1+ "</font></body></html>";
-        String mensajeP2 = "<html><body><font size='5'>Puntos del la maquina: " + victoriasJ2+"</font></body></html>";
-        JOptionPane.showMessageDialog(null,mensaje + "\n" + mensajeP1 + "\n" + mensajeP2);
+    public int getvictoriasbot(){
+        return victoriasbot;
+    }
+
+    public int getrondascounter(){
+        return rondascounter;
     }
  }
 

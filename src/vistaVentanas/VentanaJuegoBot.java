@@ -16,8 +16,10 @@ public class VentanaJuegoBot extends JFrame {
     private JPanel  jppuntos;
     private JLabel lblpointp1vsC, lblpointpCvs1, lblrondavsC, csll1, csll2, csll3, csll4, csll5, csll6, csll7, csll8, csll9;
     private JLabel[][] casillas;
+    private int numeroRondas;
 
-    public VentanaJuegoBot(){
+    public VentanaJuegoBot(int numeroRondas){
+        this.numeroRondas = numeroRondas;
         casillas = new JLabel[3][3];
         iniciarComponentes();
         asignarCasillas();
@@ -166,12 +168,16 @@ public class VentanaJuegoBot extends JFrame {
     public JLabel getVictoriasJ1(){
         return lblpointp1vsC;
     }
-    public JLabel getVictoriasJ2(){
+    public JLabel getvictoriasbot(){
         return lblpointpCvs1;
     }
 
     public JLabel getRondaspartida(){
         return lblrondavsC;
+    }
+
+    public int getnumeroRondas(){
+        return numeroRondas;
     }
 
 }

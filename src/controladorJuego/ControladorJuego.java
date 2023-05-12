@@ -70,6 +70,7 @@ public class ControladorJuego implements KeyListener {
             @Override
             public void mouseClicked(MouseEvent e){
                 model.marcarCasilla(i,j, casillas);
+                terminarJuego();
             }
         });
     }
@@ -79,6 +80,38 @@ public class ControladorJuego implements KeyListener {
         JLabel j2 = view.getVictoriasJ2();
         JLabel j3 = view.getRondaspartida();
         model.setEstadisticasPartida(j1,j2, j3);
+    }
+
+    private void terminarJuego(){
+       if (model.getrondascounter() == view.getnumeroRondas()){
+        verificarvictoria();
+       } 
+    }
+
+    private void verificarvictoria(){
+        if (model.getvictoriasJ1() > model.getvictoriasJ2()){
+            terminarjuegowp1();
+        } else if (model.getvictoriasJ2() > model.getvictoriasJ1()){
+            terminarjuegowp2();
+        }
+    }
+
+    public void terminarjuegowp1(){
+        String mensaje = "<html><body><center><font size='5'> FELICIDADES USTED ES EL GANDOR </font></center></body></html>";
+        String ganador = "<html><body><center><font size='5'> jugador 1 </font></center></body></html>";
+        String mensajeP1 = "<html><body><font size='5'>Puntos del jugador 1: " + model.getvictoriasJ1()+ "</font></body></html>";
+        String mensajeP2 = "<html><body><font size='5'>Puntos del jugador 2: " + model.getvictoriasJ2()+ "</font></body></html>";
+        JOptionPane.showMessageDialog(null,mensaje + "\n" + ganador +"\n" + mensajeP1 + "\n" + mensajeP2);
+        System.exit(0);
+    }
+
+    public void terminarjuegowp2(){
+        String mensaje = "<html><body><center><font size='5'> FELICIDADES USTED ES EL GANDOR </font></center></body></html>";
+        String ganador = "<html><body><center><font size='5'> jugador 2</font></center></body></html>";
+        String mensajeP1 = "<html><body><font size='5'>Puntos del jugador 1: " + model.getvictoriasJ1()+ "</font></body></html>";
+        String mensajeP2 = "<html><body><font size='5'>Puntos del jugador 2: " + model.getvictoriasJ2()+"</font></body></html>";
+        JOptionPane.showMessageDialog(null,mensaje + "\n" + ganador +"\n" + mensajeP1 + "\n" + mensajeP2);
+        System.exit(0);
     }
 
     public void keyReleased(KeyEvent e) {

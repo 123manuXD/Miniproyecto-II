@@ -197,7 +197,7 @@ public class VentanaModoJuego extends JFrame implements ActionListener {
     public void juego1vscop(){
         dispose();
         MJbot modelbot = new MJbot();
-        VentanaJuegoBot viewBot = new VentanaJuegoBot();
+        VentanaJuegoBot viewBot = new VentanaJuegoBot(rondaselecc);
         controlerJuegobot controladorb = new controlerJuegobot(viewBot, modelbot);
         System.out.println(rondaselecc);
 
