@@ -20,6 +20,7 @@ public class controlerJuegobot implements KeyListener{
     private JLabel[][]casillas;
     private int currentRow;
     private int currentCol;
+    private boolean mensajeMostrado = false;
 
     public controlerJuegobot(VentanaJuegoBot viewBot, MJbot modelbot){
         this.viewbot = viewBot;
@@ -84,7 +85,9 @@ public class controlerJuegobot implements KeyListener{
     private void terminarJuego(){
         if (modelbot.getrondascounter() == viewbot.getnumeroRondas()){
          verificarvictoria();
-        } 
+        } else if (modelbot.getrondascounter() > viewbot.getnumeroRondas()){
+        verificarvictoria();
+       }
      }
  
     private void verificarvictoria(){
@@ -94,7 +97,7 @@ public class controlerJuegobot implements KeyListener{
             terminarjuegowmaquina();
         } else if (modelbot.getvictoriasJ1() == modelbot.getvictoriasbot()){
             terminarJuegoempate();
-        }
+        } 
     }
 
     public void terminarjuegowp1(){
@@ -112,8 +115,11 @@ public class controlerJuegobot implements KeyListener{
     }
 
     public void terminarJuegoempate(){
-        String mensaje = "<html><body><center><font size='5'> El JUEGO TERMINA EN EMPATE </font></center></body></html>";
-        JOptionPane.showMessageDialog(null, mensaje);
+        if(!mensajeMostrado){
+            String mensaje = "<html><body><center><font size='5'> EMPATE TIENEN UNA RONDA MÁS </font></center></body></html>";
+            JOptionPane.showMessageDialog(null, mensaje);
+            mensajeMostrado = true;
+        }
     }
 
 

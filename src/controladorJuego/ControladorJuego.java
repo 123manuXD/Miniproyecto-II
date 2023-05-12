@@ -22,6 +22,7 @@ public class ControladorJuego implements KeyListener {
     private JLabel[][] casillas;
     private int currentRow;
     private int currentCol;
+    private boolean mensajeMostrado = false;
     
     public ControladorJuego(VentanaJuego view, ModeloJuego model){
         this.view = view;
@@ -86,7 +87,9 @@ public class ControladorJuego implements KeyListener {
     private void terminarJuego(){
        if (model.getrondascounter() == view.getnumeroRondas()){
         verificarvictoria();
-       } 
+       } else if (model.getrondascounter() > view.getnumeroRondas()){
+        verificarvictoria();
+       }
     }
 
     private void verificarvictoria(){
@@ -119,8 +122,11 @@ public class ControladorJuego implements KeyListener {
 
 
     public void terminarJuegoempate(){
-        String mensaje = "<html><body><center><font size='5'> El JUEGO TERMINA EN EMPATE </font></center></body></html>";
-        JOptionPane.showMessageDialog(null, mensaje);
+        if(!mensajeMostrado){
+            String mensaje = "<html><body><center><font size='5'> EMPATE TIENEN UNA RONDA MÁS </font></center></body></html>";
+            JOptionPane.showMessageDialog(null, mensaje);
+            mensajeMostrado = true;
+        }
     }
 
     public void keyReleased(KeyEvent e) {
