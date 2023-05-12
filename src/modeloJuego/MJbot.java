@@ -155,12 +155,18 @@ import javax.swing.*;
             if(turno.equals("X")){
                 victoriasJ1++;
                 rondascounter++;
+                if(rondascounter == 1){
+                    terminarjuegowp1();
+                }
                 cuadrojbot1.setText(String.valueOf(victoriasJ1));
                 cuadrojbot3.setText(String.valueOf(rondascounter));
                 JOptionPane.showMessageDialog(null, "¡Ha ganado el Jugador 1");
             } else {
                 victoriasJ2++;
                 rondascounter++;
+                if(rondascounter == 1){
+                    terminarjuegowmaquina();
+                }
                 cuadrojbot2.setText(String.valueOf(victoriasJ2));
                 cuadrojbot3.setText(String.valueOf(rondascounter));
                 JOptionPane.showMessageDialog(null, "¡Ha ganado la maquina");
@@ -182,6 +188,20 @@ import javax.swing.*;
         cuadrojbot1 = jb1;
         cuadrojbot2 = jb2;
         cuadrojbot3 = jb3;
+    }
+
+    public void terminarjuegowp1(){
+        String mensaje = "<html><body><center><font size='5'> !VENCISTE A LA MAQUINA FELICIDADES! :D </font></center></body></html>";
+        String mensajeP1 = "<html><body><font size='5'>Tus puntos: " + victoriasJ1+ "</font></body></html>";
+        String mensajeP2 = "<html><body><font size='5'>Puntos del la maquina: " + victoriasJ2+"</font></body></html>";
+        JOptionPane.showMessageDialog(null,mensaje + "\n" + mensajeP1 + "\n" + mensajeP2);
+    }
+
+    public void terminarjuegowmaquina(){
+        String mensaje = "<html><body><center><font size='5'> UFFF! LA MAQUINA VENCIO, VUELVE CUANDO SEAS MÁS FUERTE </font></center></body></html>";
+        String mensajeP1 = "<html><body><font size='5'>Tus puntos: " + victoriasJ1+ "</font></body></html>";
+        String mensajeP2 = "<html><body><font size='5'>Puntos del la maquina: " + victoriasJ2+"</font></body></html>";
+        JOptionPane.showMessageDialog(null,mensaje + "\n" + mensajeP1 + "\n" + mensajeP2);
     }
  }
 

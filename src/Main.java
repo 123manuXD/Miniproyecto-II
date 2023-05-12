@@ -15,7 +15,5 @@ import modeloJuego.MJbot;
 public class Main {
     public static void main(String args[]){
         VentanaInicio ventana = new VentanaInicio();
-        ModeloJuego model = new ModeloJuego();
-        MJbot modelbot = new MJbot();
     }
 }

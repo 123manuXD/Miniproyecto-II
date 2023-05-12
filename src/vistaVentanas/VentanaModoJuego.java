@@ -190,7 +190,7 @@ public class VentanaModoJuego extends JFrame implements ActionListener {
         //Para traer la ventana juego
         dispose();
         ModeloJuego model = new ModeloJuego();
-        VentanaJuego view = new VentanaJuego();
+        VentanaJuego view = new VentanaJuego(rondaselecc);
         ControladorJuego controlador = new ControladorJuego(view, model);
     }
 
@@ -199,6 +199,7 @@ public class VentanaModoJuego extends JFrame implements ActionListener {
         MJbot modelbot = new MJbot();
         VentanaJuegoBot viewBot = new VentanaJuegoBot();
         controlerJuegobot controladorb = new controlerJuegobot(viewBot, modelbot);
+        System.out.println(rondaselecc);
 
     }
 
@@ -206,9 +207,8 @@ public class VentanaModoJuego extends JFrame implements ActionListener {
         JOptionPane.showMessageDialog(null,"Selecciona las rondas que quieres jugar.", "Parámetro Necesario",JOptionPane.ERROR_MESSAGE);
     }
 
-    public int getnronda (){
-        return rondaselecc;
-    }
+   
+
     
 } 
 

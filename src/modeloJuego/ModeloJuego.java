@@ -24,8 +24,6 @@ public class ModeloJuego {
     private int victoriasJ1;
     private int victoriasJ2;
     private int rondascounter;
-    //private int rondascounter2;
-
 
     public ModeloJuego(){
         turno = "X";
@@ -35,6 +33,7 @@ public class ModeloJuego {
         cantidadTurnos = 0;
         victoriasJ1 = 0;
         victoriasJ2 = 0;
+        rondascounter = 0;
     }
 
     public void marcarCasilla(int i, int j, JLabel[][] casillas){
@@ -142,12 +141,18 @@ public class ModeloJuego {
             if(turno.equals("X")){
                 victoriasJ1++;
                 rondascounter++;
+                if(rondascounter == 2){
+                    terminarjuegowp1();
+                }
                 cuadroj1.setText(String.valueOf(victoriasJ1));
                 cuadroj3.setText(String.valueOf(rondascounter));
                 JOptionPane.showMessageDialog(null, "¡Ha ganado el Jugador 1");
             } else {
                 victoriasJ2++;
                 rondascounter++;
+                if(rondascounter == 2){
+                    terminarjuegowp2();
+                }
                 cuadroj2.setText(String.valueOf(victoriasJ2));
                 cuadroj3.setText(String.valueOf(rondascounter));
                 JOptionPane.showMessageDialog(null, "¡Ha ganado el Jugador 2");
@@ -171,10 +176,20 @@ public class ModeloJuego {
         cuadroj3 = j3;
     }
 
-    /* public void traerValor (){
-        VentanaModoJuego rondaselecc = new VentanaModoJuego();
-        rondascounter2 = rondaselecc.getnronda();
+    public void terminarjuegowp1(){
+        String mensaje = "<html><body><center><font size='5'> FELICIDADES USTED ES EL GANDOR </font></center></body></html>";
+        String ganador = "<html><body><center><font size='5'> " + "jugador 1"+ "</font></center></body></html>";
+        String mensajeP1 = "<html><body><font size='5'>Puntos del jugador 1: " + victoriasJ1+ "</font></body></html>";
+        String mensajeP2 = "<html><body><font size='5'>Puntos del jugador 2: " + victoriasJ2+"</font></body></html>";
+        JOptionPane.showMessageDialog(null,mensaje + "\n" + ganador +"\n" + mensajeP1 + "\n" + mensajeP2);
+    }
 
-    } */
+    public void terminarjuegowp2(){
+        String mensaje = "<html><body><center><font size='5'> FELICIDADES USTED ES EL GANDOR </font></center></body></html>";
+        String ganador = "<html><body><center><font size='5'> " + "jugador 2"+ "</font></center></body></html>";
+        String mensajeP1 = "<html><body><font size='5'>Puntos del jugador 1: " + victoriasJ1+ "</font></body></html>";
+        String mensajeP2 = "<html><body><font size='5'>Puntos del jugador 2: " + victoriasJ2+"</font></body></html>";
+        JOptionPane.showMessageDialog(null,mensaje + "\n" + ganador +"\n" + mensajeP1 + "\n" + mensajeP2);
+    }
 
 }

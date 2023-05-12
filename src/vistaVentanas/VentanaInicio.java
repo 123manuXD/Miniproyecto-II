@@ -20,6 +20,8 @@ public class VentanaInicio extends JFrame implements ActionListener {
     //panel
     JPanel jpcontenidogoblal;
 
+    private String nombrep1, nombrep2;
+
     public VentanaInicio(){
         iniciarComponentes();
         getContentPane().setBackground((new Color(42, 47, 79)));
@@ -129,8 +131,8 @@ public class VentanaInicio extends JFrame implements ActionListener {
     }
 
     private void textselec(){
-        String nombrep1 = txtplayer1.getText();
-        String nombrep2 = txtplayer2.getText();
+        nombrep1 = txtplayer1.getText();
+        nombrep2 = txtplayer2.getText();
         if(nombrep1.trim().isEmpty() || nombrep1.trim().equals("Player 1") || nombrep2.trim().isEmpty() || nombrep2.trim().equals("Player 2")) {
             JOptionPane.showMessageDialog(null, "PORFAVOR INGRESE SUS NOMBRES PARA INICAR EN CASO DE JUGAR SOLO INGRESE BOT EN SEGUNDO JUGADOR", "Advertencia", JOptionPane.ERROR_MESSAGE);
             if(nombrep1.trim().isEmpty() || nombrep1.trim().equals("Player 1")) {
@@ -141,9 +143,21 @@ public class VentanaInicio extends JFrame implements ActionListener {
         } else {
             dispose();
             VentanaModoJuego ventana = new VentanaModoJuego();
+            System.out.println(nombrep1);
+            System.out.println(nombrep2);
         }
         
 
     }
+
+    public String getjugador1(){
+        return nombrep1;
+    }
+
+    public String getjugador2(){
+        return nombrep2;
+    }
+
+    
     
 }

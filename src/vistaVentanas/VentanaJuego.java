@@ -15,8 +15,10 @@ public class VentanaJuego extends JFrame {
     private JPanel jppuntos;
     private JLabel lblpointp1, lblpointp2, lblronda, csll1, csll2, csll3, csll4, csll5, csll6, csll7, csll8, csll9;
     private JLabel[][] casillas;
+    private int numeroRondas;
 
-    public VentanaJuego(){
+    public VentanaJuego(int numeroRondas){
+        this.numeroRondas = numeroRondas;
         casillas = new JLabel[3][3];
         iniciarComponentes();
         asignarCasillas();
@@ -173,6 +175,10 @@ public class VentanaJuego extends JFrame {
 
     public JLabel getRondaspartida(){
         return lblronda;
+    }
+
+    public int getnumeroRondas(){
+        return numeroRondas;
     }
 
 }
